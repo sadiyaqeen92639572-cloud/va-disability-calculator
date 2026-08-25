@@ -1,0 +1,99 @@
+:root {
+  --brand: #1e3a5f;
+  --brand-light: #dbeafe;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f9fafb;
+  --radius: 12px;
+}
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; color: var(--text); margin: 0; background: #fff; line-height: 1.5; }
+header { background: var(--brand); color: #fff; padding: 32px 20px; }
+header a { color: rgba(255,255,255,.9); text-decoration: none; }
+header h1 { margin: 12px 0 4px; font-size: 1.8rem; }
+header p { color: rgba(255,255,255,.9); }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.1rem; }
+header .reviewed-badge { color: rgba(255,255,255,.75); font-size: .78rem; margin-top: 6px; text-transform: uppercase; letter-spacing: .5px; font-weight: 600; }
+footer p:first-child { max-width: 640px; margin: 0 auto 8px; }
+.disclaimer-banner { background: #fef3c7; border-bottom: 1px solid #fde68a; padding: 12px 20px; font-size: .9rem; color: #78350f; }
+
+/* VA-branding disclaimer — must render on every calculator page, not just /about/ */
+.va-branding-notice { background: #eff6ff; border-bottom: 1px solid #bfdbfe; padding: 10px 20px; font-size: .82rem; color: #1e3a5f; text-align: center; }
+
+main { max-width: 780px; margin: 0 auto; padding: 24px 20px 60px; }
+nav.crumbs { max-width: 780px; margin: 0 auto; padding: 12px 20px 0; font-size: .85rem; color: var(--muted); }
+nav.crumbs a { color: var(--brand); text-decoration: none; }
+form { display: grid; gap: 16px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; font-weight: 600; }
+input, select { padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; }
+.checkbox-label { flex-direction: row; align-items: center; gap: 8px; }
+.checkbox-label input { width: auto; }
+
+.toggle-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.toggle-group button { flex: 1; min-width: 90px; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: #fff; cursor: pointer; font-weight: 600; font-size: .85rem; }
+.toggle-group button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* repeater rows: disability list (home page), back-pay periods */
+.repeater-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: end; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
+.repeater-row .remove-row { background: #fee2e2; color: #991b1b; border: none; border-radius: 6px; padding: 8px 10px; cursor: pointer; font-weight: 700; white-space: normal; }
+.add-row-btn { background: #fff; border: 1px dashed var(--brand); color: var(--brand); border-radius: 8px; padding: 10px; cursor: pointer; font-weight: 600; }
+
+button.submit-btn { background: var(--brand); color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+#results-block { margin-top: 20px; padding: 20px; background: var(--brand-light); border-radius: var(--radius); display: none; }
+#results-block.visible { display: block; }
+.result-amount { font-size: 2rem; font-weight: 800; margin: 0 0 8px; }
+.result-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,.08); font-size: .95rem; }
+.result-row:last-child { border-bottom: none; }
+.privacy-note { font-size: .8rem; color: var(--muted); margin-top: 8px; }
+.result-warning { font-size: .82rem; color: #92400e; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; margin-top: 10px; }
+
+/* free VSO routing box — shown instead of the attorney lead form for not-yet-filed claims */
+.vso-notice { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--radius); padding: 18px; font-size: .9rem; }
+.vso-notice h3 { margin-top: 0; color: #065f46; }
+.vso-notice ul { padding-left: 20px; }
+
+section { margin-top: 40px; }
+main > section { overflow-x: auto; }
+.methodology { font-size: .85rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 20px; }
+footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 24px; border-top: 1px solid var(--border); }
+.formula-section { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius); padding: 24px; overflow-x: auto; }
+.formula-section .source-line { color: #64748b; font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; font-weight: 600; }
+.formula-section table, main > section > table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 12px 0; }
+.formula-section th, .formula-section td, main > section > table th, main > section > table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.formula-code { background: #1e3a5f; color: #e2e8f0; border-radius: 8px; padding: 16px 18px; font-family: 'Courier New', monospace; font-size: .82rem; line-height: 1.9; }
+.formula-footnote { font-size: .78rem; color: #94a3b8; margin-top: 12px; }
+
+/* wide compensation-rate table (8+ columns) — must always scroll, never push page width */
+.rate-table-wrapper { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+.rate-table-wrapper table { min-width: 720px; margin: 0; }
+
+.cta-leadgen { display: block; text-align: center; background: #111827; color: #fff; padding: 16px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px; }
+.cta-leadgen small { display: block; font-weight: 400; color: rgba(255,255,255,.7); margin-top: 4px; font-size: .75rem; }
+.cta-affiliate { display: block; text-align: center; background: #f8fafc; border: 1px solid var(--border); color: var(--text); padding: 14px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px; font-size: .9rem; }
+.cta-affiliate small { display: block; font-weight: 400; color: var(--muted); margin-top: 4px; font-size: .75rem; }
+.tool-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; list-style: none; padding: 0; }
+.tool-links a { display: block; padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); font-weight: 600; font-size: .9rem; }
+.tool-links a:hover { border-color: var(--brand); }
+
+.eeat-section { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 40px; box-shadow: 0 4px 20px rgba(15,45,90,.05); }
+.eeat-title { font-size: 1.2rem; font-weight: 800; color: var(--brand); margin: 0 0 18px; border-bottom: 2px solid var(--brand-light); padding-bottom: 10px; }
+.eeat-compliance-item + .eeat-compliance-item { margin-top: 16px; }
+.eeat-compliance-text h4 { font-size: .92rem; font-weight: 700; color: var(--brand); margin: 0 0 2px; }
+.eeat-compliance-text p { font-size: .85rem; color: var(--muted); line-height: 1.5; margin: 0; }
+.eeat-compliance-text a { color: var(--brand); text-decoration: underline; }
+
+@media (min-width: 641px) {
+  header { text-align: center; }
+}
+@media (max-width: 640px) {
+  header h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.15rem; }
+  h3 { font-size: 1rem; }
+  .formula-code { padding: 12px 14px; line-height: 1.6; font-size: .78rem; }
+  .disclaimer-banner, .va-branding-notice { font-size: .8rem; }
+  .result-amount { font-size: 1.6rem; }
+  footer { font-size: .78rem; }
+  .repeater-row { grid-template-columns: 1fr; }
+}

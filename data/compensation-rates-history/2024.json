@@ -1,0 +1,24 @@
+{
+  "effective_date": "2024-12-01",
+  "coverage_period": "2024-12-01 to 2025-11-30",
+  "source": {
+    "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2025/",
+    "retrieved": "2026-08-24"
+  },
+  "last_verified": "2026-08-24",
+  "coverage_note": "PARTIAL DATA — 'alone' rates fully sourced for all ratings 10-100%. Full dependent-status matrix NOT sourced for this year — fine for zero-dependent back-pay calculations, not yet for dependent scenarios in this period.",
+  "rates_10_20": {
+    "10": 175.51,
+    "20": 346.95
+  },
+  "rates_30_100": {
+    "30": { "alone": 537.42 },
+    "40": { "alone": 774.16 },
+    "50": { "alone": 1102.04 },
+    "60": { "alone": 1395.93 },
+    "70": { "alone": 1759.19 },
+    "80": { "alone": 2044.89 },
+    "90": { "alone": 2297.96 },
+    "100": { "alone": 3831.30 }
+  }
+}

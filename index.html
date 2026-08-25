@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VA Combined Rating Calculator — Multiple Disabilities, Bilateral Factor Included</title>
+<meta name="description" content="Free VA combined disability rating calculator. Enter each disability percentage and get your correct combined rating using VA's whole-person formula — not simple addition. Includes the bilateral factor for paired-limb disabilities.">
+<meta name="keywords" content="va combined rating calculator, va disability calculator, va bilateral factor calculator, va disability rating calculator">
+<link rel="canonical" href="https://vacombinedrating.com/">
+<meta property="og:title" content="VA Combined Rating Calculator">
+<meta property="og:description" content="Correctly combine multiple VA disability ratings using the official whole-person formula, including the bilateral factor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vacombinedrating.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "VA Combined Rating Calculator",
+      "description": "Calculates a veteran's combined VA disability rating from multiple individual ratings using the official 38 CFR §4.25 whole-person formula, including the §4.26 bilateral factor for paired-limb disabilities.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "dateModified": "2026-08-24",
+      "version": "2026-08-v1",
+      "author": { "@type": "Organization", "name": "Gesmine-Invest Limited", "legalName": "Gesmine-Invest Limited", "url": "https://vacombinedrating.com", "identifier": { "@type": "PropertyValue", "propertyID": "UK Company Number", "value": "14120136" }, "address": { "@type": "PostalAddress", "streetAddress": "Hardy House, 269 Poynders Gardens", "addressLocality": "London", "postalCode": "SW4 8PQ", "addressCountry": "GB" } },
+      "publisher": { "@type": "Organization", "name": "Gesmine-Invest Limited", "legalName": "Gesmine-Invest Limited", "url": "https://vacombinedrating.com", "identifier": { "@type": "PropertyValue", "propertyID": "UK Company Number", "value": "14120136" }, "address": { "@type": "PostalAddress", "streetAddress": "Hardy House, 269 Poynders Gardens", "addressLocality": "London", "postalCode": "SW4 8PQ", "addressCountry": "GB" } }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why doesn't the VA just add up my disability percentages?", "acceptedAnswer": { "@type": "Answer", "text": "VA uses a 'whole person' theory: each new disability is rated against how much of the veteran's remaining, undisabled efficiency is left — not against the original 100%. Two 50% ratings don't combine to 100%; they combine to 75%, rounded to 80% per the official Combined Ratings Table (38 CFR §4.25)." } },
+        { "@type": "Question", "name": "What is the VA bilateral factor?", "acceptedAnswer": { "@type": "Answer", "text": "If a veteran has two or more disabilities affecting paired limbs — both arms, both legs, or paired skeletal muscle groups (not one arm and one leg) — those disabilities are first combined together, then that sub-total is increased by an extra 10% before being combined with the veteran's other ratings (38 CFR §4.26)." } },
+        { "@type": "Question", "name": "Does this calculator cover Special Monthly Compensation (SMC)?", "acceptedAnswer": { "@type": "Answer", "text": "No. SMC applies to specific catastrophic disabilities (loss of use of a limb, need for aid and attendance, etc.) and is not calculated here — consult an accredited Veterans Service Officer (VSO) if you believe SMC may apply to your case." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vacombinedrating.com/" }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Gesmine-Invest Limited",
+      "legalName": "Gesmine-Invest Limited",
+      "url": "https://vacombinedrating.com/",
+      "identifier": { "@type": "PropertyValue", "propertyID": "UK Company Number", "value": "14120136" },
+      "address": { "@type": "PostalAddress", "streetAddress": "Hardy House, 269 Poynders Gardens", "addressLocality": "London", "postalCode": "SW4 8PQ", "addressCountry": "GB" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+<a href="/">VA Combined Rating Calculator</a>
+<h1>VA Combined Rating Calculator</h1>
+<p>Multiple disabilities combine using VA's whole-person formula — not addition. Bilateral factor included.</p>
+<p class="reviewed-badge">Last reviewed 2026-08-24</p>
+</header>
+<div class="va-branding-notice">This is an independent tool — not affiliated with the U.S. Department of Veterans Affairs, not a VSO, and not a law firm.</div>
+<div class="disclaimer-banner">Estimate only, based on the official VA Combined Ratings Table (38 CFR §4.25-4.26). Not a substitute for your VA rating decision letter or advice from an accredited VSO or attorney.</div>
+
+<main>
+<form id="calc-form">
+  <div id="disability-rows">
+    <div class="repeater-row" data-row>
+      <label>Disability rating (%)
+        <input type="number" class="rating-input" min="0" max="100" step="10" value="50">
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" class="bilateral-input"> Affects paired limbs (both arms/both legs)
+      </label>
+      <button type="button" class="remove-row" title="Remove">✕</button>
+    </div>
+    <div class="repeater-row" data-row>
+      <label>Disability rating (%)
+        <input type="number" class="rating-input" min="0" max="100" step="10" value="30">
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" class="bilateral-input"> Affects paired limbs (both arms/both legs)
+      </label>
+      <button type="button" class="remove-row" title="Remove">✕</button>
+    </div>
+  </div>
+  <button type="button" id="add-row-btn" class="add-row-btn">+ Add another disability</button>
+  <button type="submit" class="submit-btn">Calculate combined rating</button>
+</form>
+
+<div id="results-block">
+  <div class="result-amount" id="r-combined">0%</div>
+  <div class="result-row"><span>Bilateral factor applied</span><span id="r-bilateral">No</span></div>
+  <p class="privacy-note">See your monthly compensation for this rating on the <a href="/va-disability-pay-calculator/">pay calculator</a>.</p>
+
+  <div id="claim-stage-block">
+    <label>Where are you in the claims process?
+      <select id="claim-stage">
+        <option value="not_filed">Haven't filed yet</option>
+        <option value="awaiting_decision">Filed, awaiting decision</option>
+        <option value="denied_appealing">Denied, considering appeal</option>
+        <option value="rated_want_increase">Already rated, want an increase</option>
+      </select>
+    </label>
+
+    <div id="vso-notice" class="vso-notice">
+      <h3>Free help is available</h3>
+      <p>VA claims representation is regulated — before an initial decision is issued, fees for help with a claim are tightly restricted. Free, accredited help is available from Veterans Service Organizations:</p>
+      <ul>
+        <li><a href="https://www.vfw.org/assistance/va-claims-assistance" rel="nofollow noopener" target="_blank">VFW Veterans Service Officers</a></li>
+        <li><a href="https://www.dav.org/veterans/resources/find-your-local-office/" rel="nofollow noopener" target="_blank">DAV National Service Officers</a></li>
+        <li><a href="https://www.legion.org/serviceofficers" rel="nofollow noopener" target="_blank">American Legion Service Officers</a></li>
+      </ul>
+    </div>
+
+    <div id="attorney-block" hidden>
+      <a href="#leadgen" class="cta-leadgen">Talk to an accredited VA disability attorney<small>Free case review. Contingency-fee cases only apply after an initial decision or on appeal.</small></a>
+    </div>
+  </div>
+</div>
+
+<section id="leadgen">
+<h2>Have questions about your claim or appeal?</h2>
+<p>Share a few details and we'll connect you with an accredited VA disability attorney or claims agent for a free case review.</p>
+<form id="lead-form">
+  <label>Name <input type="text" name="name" required></label>
+  <label>Email <input type="email" name="email" required></label>
+  <label>Combined rating (%) <input type="text" name="rating"></label>
+  <label>Brief context <input type="text" name="context"></label>
+  <button type="submit" class="submit-btn">Request a free case review</button>
+</form>
+<p class="privacy-note">By submitting, you agree to be contacted about your claim. See our <a href="/privacy/">privacy policy</a>.</p>
+</section>
+
+<section>
+<h2>Other tools</h2>
+<ul class="tool-links">
+  <li><a href="/va-disability-pay-calculator/">Monthly pay calculator</a></li>
+  <li><a href="/va-disability-compensation-calculator/">Compensation with dependents</a></li>
+  <li><a href="/va-disability-back-pay-calculator/">Back pay calculator</a></li>
+  <li><a href="/guides/how-va-combined-ratings-work/">How combined ratings work</a></li>
+</ul>
+</section>
+
+<section class="formula-section">
+<h2>How this calculator works</h2>
+<p class="source-line">Deterministic math — no AI, no estimation model. Official formula below.</p>
+<div class="formula-code">
+Sort ratings descending.<br>
+combined = first rating<br>
+FOR each remaining rating r:<br>
+&nbsp;&nbsp;combined = combined + (100 − combined) × (r ÷ 100)<br>
+Round combined to nearest 10 (38 CFR §4.25 Table I)<br>
+<br>
+Bilateral factor (§4.26), if 2+ ratings affect paired limbs:<br>
+&nbsp;&nbsp;bilateral_sub = combine(paired ratings)<br>
+&nbsp;&nbsp;bilateral_sub += bilateral_sub × 10%<br>
+&nbsp;&nbsp;combined = combine(bilateral_sub, remaining ratings)
+</div>
+<p class="formula-footnote">This is the official VA "whole person" combination method, not simple addition — see <a href="/guides/how-va-combined-ratings-work/">how combined ratings work</a> for a worked example.</p>
+</section>
+
+<section>
+<h2>FAQ</h2>
+<h3>Why doesn't the VA just add up my disability percentages?</h3>
+<p>VA uses a "whole person" theory: each new disability is rated against how much of the veteran's remaining, undisabled efficiency is left — not against the original 100%. Two 50% ratings don't combine to 100%; they combine to 75%, rounded to 80% per the official Combined Ratings Table.</p>
+<h3>What is the VA bilateral factor?</h3>
+<p>If a veteran has two or more disabilities affecting paired limbs — both arms, both legs, or paired skeletal muscle groups (not one arm and one leg) — those disabilities are first combined together, then that sub-total is increased by an extra 10% before being combined with the veteran's other ratings.</p>
+<h3>Does this calculator cover Special Monthly Compensation (SMC)?</h3>
+<p>No. SMC applies to specific catastrophic disabilities (loss of use of a limb, need for aid and attendance, etc.) and is not calculated here — consult an accredited VSO if you believe SMC may apply to your case.</p>
+</section>
+
+<div class="eeat-section">
+  <h2 class="eeat-title">Transparency &amp; Methodology</h2>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Independent, source-checked figures</h4><p>Every dollar figure traces to <a href="https://www.va.gov/disability/compensation-rates/veteran-rates/" target="_blank" rel="noopener">VA.gov's published compensation rate tables</a> or <a href="https://www.ecfr.gov/current/title-38/chapter-I/part-4/subpart-A/section-4.25" target="_blank" rel="noopener">38 CFR §4.25</a>. No AI-estimated numbers.</p></div>
+  </div>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Not legal or financial advice</h4><p>This tool estimates VA disability ratings and pay for planning purposes only. For your official rating or a claim decision, consult an accredited <a href="https://www.va.gov/vso/" target="_blank" rel="noopener">Veterans Service Organization</a> or a VA-accredited attorney/claims agent.</p></div>
+  </div>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Published by an identifiable operator</h4><p>Run by Gesmine-Invest Limited (UK company 14120136) — see <a href="/about/">About</a> for full sourcing methodology and data gaps we disclose rather than paper over.</p></div>
+  </div>
+</div>
+</main>
+
+<footer>
+<p>VA Combined Rating Calculator is published by Gesmine-Invest Limited, registered UK company number 14120136, registered office at Hardy House, 269 Poynders Gardens, London, United Kingdom, SW4 8PQ. Not affiliated with the U.S. Department of Veterans Affairs.</p>
+<p><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/changelog/">Changelog</a> · &copy; 2026 VA Combined Rating Calculator. Estimates only — not legal or financial advice.</p>
+</footer>
+
+<script src="/assets/calc-engine.js"></script>
+<script>
+function rowTemplate() {
+  const div = document.createElement('div');
+  div.className = 'repeater-row';
+  div.setAttribute('data-row', '');
+  div.innerHTML = `
+    <label>Disability rating (%)
+      <input type="number" class="rating-input" min="0" max="100" step="10" value="10">
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" class="bilateral-input"> Affects paired limbs (both arms/both legs)
+    </label>
+    <button type="button" class="remove-row" title="Remove">✕</button>`;
+  return div;
+}
+
+document.getElementById('add-row-btn').addEventListener('click', () => {
+  document.getElementById('disability-rows').appendChild(rowTemplate());
+  wireRemoveButtons();
+});
+
+function wireRemoveButtons() {
+  document.querySelectorAll('.remove-row').forEach(btn => {
+    btn.onclick = () => {
+      const rows = document.querySelectorAll('[data-row]');
+      if (rows.length > 1) btn.closest('[data-row]').remove();
+    };
+  });
+}
+wireRemoveButtons();
+
+document.getElementById('calc-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const rows = Array.from(document.querySelectorAll('[data-row]'));
+  const bilateral = [];
+  const other = [];
+  rows.forEach(row => {
+    const pct = Number(row.querySelector('.rating-input').value) || 0;
+    if (pct <= 0) return;
+    if (row.querySelector('.bilateral-input').checked) bilateral.push(pct);
+    else other.push(pct);
+  });
+  const combined = applyBilateralFactor(bilateral, other);
+  document.getElementById('r-combined').textContent = combined + '%';
+  document.getElementById('r-bilateral').textContent = bilateral.length >= 2 ? 'Yes' : 'No';
+  document.getElementById('results-block').classList.add('visible');
+});
+
+const claimStageSelect = document.getElementById('claim-stage');
+const vsoNotice = document.getElementById('vso-notice');
+const attorneyBlock = document.getElementById('attorney-block');
+function updateClaimStageRouting() {
+  const routeToVso = claimStageSelect.value === 'not_filed' || claimStageSelect.value === 'awaiting_decision';
+  vsoNotice.hidden = !routeToVso;
+  attorneyBlock.hidden = routeToVso;
+}
+claimStageSelect.addEventListener('change', updateClaimStageRouting);
+updateClaimStageRouting();
+
+document.getElementById('lead-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thanks — this form is a placeholder. Wire it to a real submission endpoint once an OGC-accredited lead buyer is verified (see monetization-config.json).');
+});
+</script>
+</body>
+</html>

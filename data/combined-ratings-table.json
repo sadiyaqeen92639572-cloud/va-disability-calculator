@@ -1,0 +1,29 @@
+{
+  "regulation": "38 CFR 4.25 — Combined Ratings Table",
+  "source": {
+    "url": "https://www.ecfr.gov/current/title-38/chapter-I/part-4/subpart-A/section-4.25",
+    "cross_reference": "https://www.military.com/veterans-health-care/combined-disability-ratings-the-va-math-no-one-explains"
+  },
+  "retrieved": "2026-08-24",
+  "last_verified": "2026-08-24",
+  "algorithm": {
+    "description": "VA does not add disability ratings. Sort all individual ratings descending. Starting with combined=0, for each rating r (in descending order): combined = combined + (100 - combined) * (r / 100). After combining all ratings, apply the rounding rule below.",
+    "formula": "combined_next = combined_running + (100 - combined_running) * (r / 100)",
+    "iteration_order": "descending (largest disability rating applied first, per 4.25(a) — 'the disabilities will be arranged in the exact order of severity, beginning with the greatest disability')"
+  },
+  "rounding_rule": {
+    "description": "Round the final combined value to the nearest 10 percent. Values ending in digits 1-4 round DOWN; values ending in digits 5-9 round UP. This means a value ending in exactly 5 rounds UP (not the common 'round half to even' or 'round half down' convention).",
+    "example": "50% + 30% combined = 65% (50 + 30*(100-50)/100 = 65), which rounds UP to 70%, not down to 60%."
+  },
+  "bilateral_factor_applies_before_rounding": true,
+  "verified_fixtures": [
+    { "input": [50, 30], "combined": 70, "note": "50+30*(50/100)=65, ends in 5, rounds up to 70. Verified via military.com worked example." },
+    { "input": [70, 40], "combined": 80, "note": "70+40*(30/100)=82, ends in 2, rounds down to 80." },
+    { "input": [90, 10], "combined": 90, "note": "90+10*(10/100)=91, ends in 1, rounds down to 90." },
+    { "input": [10, 10], "combined": 20, "note": "10+10*(90/100)=19, ends in 9, rounds up to 20." },
+    { "input": [30, 20, 10], "combined": 50, "note": "30+20*(70/100)=44 (running); 44+10*(56/100)=49.6, ends in .6 (treat as 9-range for VA integer rounding — VA table works in whole-percent combined values in practice, so verify against official Table I when implementing; documented here as the formula-derived value, flag for extra fixture verification against the actual Table I chart since 3+ condition combination amplifies any rounding-boundary ambiguity)." },
+    { "input": [50, 30, 20], "combined": 70, "note": "50+30*(50/100)=65 (running, pre-round intermediate values are NOT rounded per-step, only final); 65+20*(35/100)=72, ends in 2, rounds down to 70. Matches military.com's PTSD/knee/tinnitus worked example (50/30/20 -> 72% -> rounds to 70%)." }
+  ],
+  "coverage_note": "Formula and rounding rule confirmed via military.com worked examples (60+30->72->70%, and 50+30+20->72->70%) which are described as directly reflecting the official Table I. The [30,20,10] fixture's exact Table I value was NOT independently confirmed against the raw eCFR table (eCFR/GovInfo blocked programmatic fetch, see access notes) — implementation should treat this fixture as formula-derived-and-plausible rather than officially verified, and re-verify against a rendered copy of Table I before shipping if possible.",
+  "access_notes": "eCFR.gov and GovInfo.gov both blocked automated fetch of the raw Table I (bot-protection page). The formula + rounding rule were instead corroborated via military.com's published worked examples, which explicitly walk through VA's official methodology and match the 38 CFR 4.25 text description found via search. Recommend a manual spot-check against a rendered eCFR page before production launch."
+}

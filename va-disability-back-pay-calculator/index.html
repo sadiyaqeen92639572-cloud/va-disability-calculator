@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VA Disability Back Pay Calculator — Uses Historical Rates, Not a Flat Estimate</title>
+<meta name="description" content="Calculate your VA disability back pay using the correct historical rate for each month, not a flat current-year estimate.">
+<link rel="canonical" href="https://vacombinedrating.com/va-disability-back-pay-calculator/">
+<meta property="og:title" content="VA Disability Back Pay Calculator — Uses Historical Rates, Not a Flat Estimate">
+<meta property="og:description" content="Calculate your VA disability back pay using the correct historical rate for each month, not a flat current-year estimate.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vacombinedrating.com/va-disability-back-pay-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-24","author":{"@type":"Organization","name":"Gesmine-Invest Limited","legalName":"Gesmine-Invest Limited","url":"https://vacombinedrating.com","identifier":{"@type":"PropertyValue","propertyID":"UK Company Number","value":"14120136"},"address":{"@type":"PostalAddress","streetAddress":"Hardy House, 269 Poynders Gardens","addressLocality":"London","postalCode":"SW4 8PQ","addressCountry":"GB"}},"publisher":{"@type":"Organization","name":"Gesmine-Invest Limited","legalName":"Gesmine-Invest Limited","url":"https://vacombinedrating.com","identifier":{"@type":"PropertyValue","propertyID":"UK Company Number","value":"14120136"},"address":{"@type":"PostalAddress","streetAddress":"Hardy House, 269 Poynders Gardens","addressLocality":"London","postalCode":"SW4 8PQ","addressCountry":"GB"}},"version":"2026-08-v1","name":"VA Disability Back Pay Calculator"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does VA back pay include interest?","acceptedAnswer":{"@type":"Answer","text":"No. VA disability back pay is not interest-bearing."}},{"@type":"Question","name":"Why does this use a different rate for older months?","acceptedAnswer":{"@type":"Answer","text":"VA compensation rates change every December 1st with a COLA adjustment — this calculator applies the historically correct rate per month."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vacombinedrating.com/"},{"@type":"ListItem","position":2,"name":"VA Disability Back Pay Calculator","item":"https://vacombinedrating.com/va-disability-back-pay-calculator/"}]},{"@type":"Organization","name":"Gesmine-Invest Limited","legalName":"Gesmine-Invest Limited","url":"https://vacombinedrating.com","identifier":{"@type":"PropertyValue","propertyID":"UK Company Number","value":"14120136"},"address":{"@type":"PostalAddress","streetAddress":"Hardy House, 269 Poynders Gardens","addressLocality":"London","postalCode":"SW4 8PQ","addressCountry":"GB"}}]}</script>
+</head>
+<body>
+<header>
+<a href="/">VA Combined Rating Calculator</a>
+<h1>VA Disability Back Pay Calculator</h1>
+<p>Applies the correct historical rate to every month, including rating changes.</p>
+<p class="reviewed-badge">Last reviewed 2026-08-24</p>
+</header>
+<div class="va-branding-notice">This is an independent tool — not affiliated with the U.S. Department of Veterans Affairs, not a VSO, and not a law firm.</div>
+<nav class="crumbs"><a href="/">Home</a> / VA Disability Back Pay Calculator</nav>
+<main>
+
+<div class="disclaimer-banner">Estimate only. Uses historical VA rates per year where sourced — see coverage notes below. Not a substitute for your VA award letter. Not interest-bearing; VA back pay does not accrue interest.</div>
+<form id="calc-form">
+  <div id="period-rows">
+    <div class="repeater-row" data-period-row>
+      <label>Rating (%)
+        <select class="period-rating">
+          <option value="10">10%</option><option value="20">20%</option>
+          <option value="30">30%</option><option value="40">40%</option><option value="50">50%</option>
+          <option value="60">60%</option><option value="70" selected>70%</option><option value="80">80%</option>
+          <option value="90">90%</option><option value="100">100%</option>
+        </select>
+      </label>
+      <label>Effective from (YYYY-MM)
+        <input type="month" class="period-start" value="2024-01">
+      </label>
+      <button type="button" class="remove-row" title="Remove">✕</button>
+    </div>
+  </div>
+  <button type="button" id="add-period-btn" class="add-row-btn">+ Add a rating-change period</button>
+  <label>Dependent status (applies to all periods)
+    <select id="depStatus">
+        <option value="alone">Veteran alone (no dependents)</option>
+        <option value="spouse_no_children">Spouse only</option>
+        <option value="spouse_1_parent">Spouse + 1 dependent parent</option>
+        <option value="spouse_2_parents">Spouse + 2 dependent parents</option>
+        <option value="parent_1">1 dependent parent only</option>
+        <option value="parent_2">2 dependent parents only</option>
+        <option value="child_1_only">1 child only (no spouse)</option>
+        <option value="child_1_spouse">Spouse + 1 child</option>
+        <option value="child_1_spouse_1_parent">Spouse + 1 child + 1 parent</option>
+        <option value="child_1_spouse_2_parents">Spouse + 1 child + 2 parents</option>
+        <option value="child_1_parent_1">1 child + 1 parent</option>
+        <option value="child_1_parent_2">1 child + 2 parents</option></select>
+  </label>
+  <button type="submit" class="submit-btn">Calculate back pay</button>
+</form>
+<div id="results-block">
+  <div class="result-amount" id="r-total">$0</div>
+  <div class="result-row"><span>Months covered</span><span id="r-months">0</span></div>
+  <p id="r-warning" class="result-warning" hidden></p>
+</div>
+
+<section>
+<h2>Other tools</h2>
+<ul class="tool-links">
+  <li><a href="/">Combined rating calculator</a></li>
+  <li><a href="/va-disability-pay-calculator/">Monthly pay calculator</a></li>
+  <li><a href="/va-disability-compensation-calculator/">Compensation with dependents</a></li>
+  <li><a href="/guides/how-va-combined-ratings-work/">How combined ratings work</a></li>
+</ul>
+</section>
+<section>
+<h2>FAQ</h2>
+<h3>Does VA back pay include interest?</h3>
+<p>No. VA disability back pay is not interest-bearing — you receive the sum of the monthly amounts you were owed, not an interest-adjusted total.</p>
+<h3>Why does this use a different rate for older months?</h3>
+<p>VA compensation rates change every December 1st with a cost-of-living adjustment (COLA). A back-pay period spanning more than about 14 months usually crosses at least one rate change — this calculator applies the historically correct rate for each month rather than a flat current-year rate, which would overstate or understate older months.</p>
+<h3>What if I had a rating change during the back-pay period?</h3>
+<p>Use "Add a rating-change period" to enter each period at its own rating and start date — the calculator sums each period separately at the applicable rate.</p>
+</section>
+<script>
+const RATE_TABLE = {"effective_date":"2025-12-01","cola_percent":null,"source":{"url":"https://www.va.gov/disability/compensation-rates/veteran-rates/","retrieved":"2026-08-24"},"last_verified":"2026-08-24","rates_10_20":{"10":180.42,"20":356.66},"rates_30_100":{"30":{"alone":552.47,"spouse_no_children":617.47,"spouse_1_parent":669.47,"spouse_2_parents":721.47,"parent_1":604.47,"parent_2":656.47,"child_1_only":596.47,"child_1_spouse":666.47,"child_1_spouse_1_parent":718.47,"child_1_spouse_2_parents":770.47,"child_1_parent_1":648.47,"child_1_parent_2":700.47,"additional_child_under_18":32,"additional_child_over_18_school":105,"additional_spouse_aid_attendance":61},"40":{"alone":795.84,"spouse_no_children":882.84,"spouse_1_parent":952.84,"spouse_2_parents":1022.84,"parent_1":865.84,"parent_2":935.84,"child_1_only":853.84,"child_1_spouse":947.84,"child_1_spouse_1_parent":1017.84,"child_1_spouse_2_parents":1087.84,"child_1_parent_1":923.84,"child_1_parent_2":993.84,"additional_child_under_18":43,"additional_child_over_18_school":140,"additional_spouse_aid_attendance":81},"50":{"alone":1132.9,"spouse_no_children":1241.9,"spouse_1_parent":1329.9,"spouse_2_parents":1417.9,"parent_1":1220.9,"parent_2":1308.9,"child_1_only":1205.9,"child_1_spouse":1322.9,"child_1_spouse_1_parent":1410.9,"child_1_spouse_2_parents":1498.9,"child_1_parent_1":1293.9,"child_1_parent_2":1381.9,"additional_child_under_18":54,"additional_child_over_18_school":176,"additional_spouse_aid_attendance":101},"60":{"alone":1435.02,"spouse_no_children":1566.02,"spouse_1_parent":1671.02,"spouse_2_parents":1776.02,"parent_1":1540.02,"parent_2":1645.02,"child_1_only":1523.02,"child_1_spouse":1663.02,"child_1_spouse_1_parent":1768.02,"child_1_spouse_2_parents":1873.02,"child_1_parent_1":1628.02,"child_1_parent_2":1733.02,"additional_child_under_18":65,"additional_child_over_18_school":211,"additional_spouse_aid_attendance":121},"70":{"alone":1808.45,"spouse_no_children":1961.45,"spouse_1_parent":2084.45,"spouse_2_parents":2207.45,"parent_1":1931.45,"parent_2":2054.45,"child_1_only":1910.45,"child_1_spouse":2074.45,"child_1_spouse_1_parent":2197.45,"child_1_spouse_2_parents":2320.45,"child_1_parent_1":2033.45,"child_1_parent_2":2156.45,"additional_child_under_18":76,"additional_child_over_18_school":246,"additional_spouse_aid_attendance":141},"80":{"alone":2102.15,"spouse_no_children":2277.15,"spouse_1_parent":2417.15,"spouse_2_parents":2557.15,"parent_1":2242.15,"parent_2":2382.15,"child_1_only":2219.15,"child_1_spouse":2406.15,"child_1_spouse_1_parent":2546.15,"child_1_spouse_2_parents":2686.15,"child_1_parent_1":2359.15,"child_1_parent_2":2499.15,"additional_child_under_18":87,"additional_child_over_18_school":281,"additional_spouse_aid_attendance":161},"90":{"alone":2362.3,"spouse_no_children":2559.3,"spouse_1_parent":2717.3,"spouse_2_parents":2875.3,"parent_1":2520.3,"parent_2":2678.3,"child_1_only":2494.3,"child_1_spouse":2704.3,"child_1_spouse_1_parent":2862.3,"child_1_spouse_2_parents":3020.3,"child_1_parent_1":2652.3,"child_1_parent_2":2810.3,"additional_child_under_18":98,"additional_child_over_18_school":317,"additional_spouse_aid_attendance":181},"100":{"alone":3938.58,"spouse_no_children":4158.17,"spouse_1_parent":4334.41,"spouse_2_parents":4510.65,"parent_1":4114.82,"parent_2":4291.06,"child_1_only":4085.43,"child_1_spouse":4318.99,"child_1_spouse_1_parent":4495.23,"child_1_spouse_2_parents":4671.47,"child_1_parent_1":4261.67,"child_1_parent_2":4437.91,"additional_child_under_18":109.11,"additional_child_over_18_school":352.45,"additional_spouse_aid_attendance":201.41}},"notes":"SMC (Special Monthly Compensation) not modeled — site directs users with catastrophic/loss-of-use disabilities to consult a VSO. Rates shown are 48-state/DC rates; no territory-specific adjustments modeled in v1."};
+const RATE_HISTORY = {"2020":{"effective_date":"2020-12-01","coverage_period":"2020-12-01 to 2021-11-30","filename_convention_note":"Files in this directory are named by their Dec-1 EFFECTIVE-DATE year, not by the calendar year they mostly overlap. E.g. 2020.json covers Dec 2020 through Nov 2021.","source":{"url":"https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2021/","retrieved":"2026-08-24"},"last_verified":"2026-08-24","coverage_note":"PARTIAL DATA — only 'alone' (veteran, no dependents) rates sourced for this year. Full dependent-status matrix (spouse/children/parents combinations) NOT sourced. calcBackPay() using this year's data can only compute accurate back pay for veterans with zero dependents during this period; must fall back / warn for dependent scenarios.","rates_10_20":{"10":144.14,"20":284.93},"rates_30_100":{"30":{"alone":441.35},"40":{"alone":635.77},"50":{"alone":905.04},"60":{"alone":1146.39},"70":{"alone":1444.71},"80":{"alone":1679.35},"90":{"alone":1887.18},"100":{"alone":3146.42}}},"2021":{"effective_date":"2021-12-01","coverage_period":"2021-12-01 to 2022-11-30","source":{"url":"https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2022/","retrieved":"2026-08-24"},"last_verified":"2026-08-24","coverage_note":"PARTIAL DATA — only 'alone' (veteran, no dependents) rates sourced for this year. Full dependent-status matrix NOT sourced.","rates_10_20":{"10":152.64,"20":301.74},"rates_30_100":{"30":{"alone":467.39},"40":{"alone":673.28},"50":{"alone":958.44},"60":{"alone":1214.03},"70":{"alone":1529.95},"80":{"alone":1778.43},"90":{"alone":1998.52},"100":{"alone":3332.06}}},"2022":{"effective_date":"2022-12-01","coverage_period":"2022-12-01 to 2023-11-30","source":{"url":"https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2023/","retrieved":"2026-08-24"},"last_verified":"2026-08-24","coverage_note":"PARTIAL DATA — 'alone' rates for all ratings, plus a partial dependent-status subset for 30-60% only (spouse only, spouse+1 parent, 1 parent only, 1 child only). No 70-100% dependent matrix, no additional-child/A&A add-on amounts sourced for this year.","rates_10_20":{"10":165.92,"20":327.99},"rates_30_100":{"30":{"alone":508.05,"spouse_no_children":568.05,"spouse_1_parent":616.05,"parent_1":556.05,"child_1_only":548.05},"40":{"alone":731.86,"spouse_no_children":811.86,"spouse_1_parent":875.86,"parent_1":795.86,"child_1_only":785.86},"50":{"alone":1041.82,"spouse_no_children":1141.82,"spouse_1_parent":1222.82,"parent_1":1122.82,"child_1_only":1108.82},"60":{"alone":1319.65,"spouse_no_children":1440.65,"spouse_1_parent":1537.65,"parent_1":1416.65,"child_1_only":1400.65},"70":{"alone":1663.06},"80":{"alone":1933.15},"90":{"alone":2172.39},"100":{"alone":3621.95}}},"2023":{"effective_date":"2023-12-01","coverage_period":"2023-12-01 to 2024-11-30","source":{"url":"https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2024/","retrieved":"2026-08-24"},"last_verified":"2026-08-24","coverage_note":"PARTIAL DATA — 'alone' rates fully sourced for all ratings 10-100%. Full dependent-status matrix confirmed to exist on source page but NOT extracted line-by-line in this pass (source page states it 'provides comprehensive tables' for 30-60% and 70-100% dependent combinations plus additional-child/A&A add-ons) — re-fetch and extract the full matrix before using this year's data for dependent-scenario back-pay calculations. Non-dependent ('alone') back-pay calculations for this period are safe to use as-is.","rates_10_20":{"10":171.23,"20":338.49},"rates_30_100":{"30":{"alone":524.31},"40":{"alone":755.28},"50":{"alone":1075.16},"60":{"alone":1361.88},"70":{"alone":1716.28},"80":{"alone":1995.01},"90":{"alone":2241.91},"100":{"alone":3737.85}}},"2024":{"effective_date":"2024-12-01","coverage_period":"2024-12-01 to 2025-11-30","source":{"url":"https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2025/","retrieved":"2026-08-24"},"last_verified":"2026-08-24","coverage_note":"PARTIAL DATA — 'alone' rates fully sourced for all ratings 10-100%. Full dependent-status matrix NOT sourced for this year — fine for zero-dependent back-pay calculations, not yet for dependent scenarios in this period.","rates_10_20":{"10":175.51,"20":346.95},"rates_30_100":{"30":{"alone":537.42},"40":{"alone":774.16},"50":{"alone":1102.04},"60":{"alone":1395.93},"70":{"alone":1759.19},"80":{"alone":2044.89},"90":{"alone":2297.96},"100":{"alone":3831.3}}}};
+const CURRENT_YEAR = 2025;
+
+function periodRowTemplate() {
+  const div = document.createElement('div');
+  div.className = 'repeater-row';
+  div.setAttribute('data-period-row', '');
+  div.innerHTML = `
+    <label>Rating (%)
+      <select class="period-rating">
+        <option value="10">10%</option><option value="20">20%</option>
+        <option value="30">30%</option><option value="40">40%</option><option value="50">50%</option>
+        <option value="60">60%</option><option value="70">70%</option><option value="80">80%</option>
+        <option value="90">90%</option><option value="100">100%</option>
+      </select>
+    </label>
+    <label>Effective from (YYYY-MM)
+      <input type="month" class="period-start" value="2024-01">
+    </label>
+    <button type="button" class="remove-row" title="Remove">✕</button>`;
+  return div;
+}
+document.getElementById('add-period-btn').addEventListener('click', function() {
+  document.getElementById('period-rows').appendChild(periodRowTemplate());
+  wireRemove();
+});
+function wireRemove() {
+  document.querySelectorAll('.remove-row').forEach(function(btn) {
+    btn.onclick = function() {
+      const rows = document.querySelectorAll('[data-period-row]');
+      if (rows.length > 1) btn.closest('[data-period-row]').remove();
+    };
+  });
+}
+wireRemove();
+
+document.getElementById('calc-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const depStatus = document.getElementById('depStatus').value;
+  const rows = Array.from(document.querySelectorAll('[data-period-row]'));
+  const periods = rows.map(function(row, i) {
+    const nextRow = rows[i + 1];
+    return {
+      ratingPct: Number(row.querySelector('.period-rating').value),
+      dependents: { status: depStatus },
+      startDate: row.querySelector('.period-start').value,
+      endDate: nextRow ? nextRow.querySelector('.period-start').value : null
+    };
+  });
+  const r = calcBackPay(periods, RATE_HISTORY, RATE_TABLE, CURRENT_YEAR);
+  document.getElementById('r-total').textContent = fmtUSD(r.total);
+  document.getElementById('r-months').textContent = r.months;
+  const warnEl = document.getElementById('r-warning');
+  if (r.warning) { warnEl.textContent = r.warning; warnEl.hidden = false; } else { warnEl.hidden = true; }
+  document.getElementById('results-block').classList.add('visible');
+});
+</script>
+
+<div class="eeat-section">
+  <h2 class="eeat-title">Transparency &amp; Methodology</h2>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Independent, source-checked figures</h4><p>Every dollar figure traces to <a href="https://www.va.gov/disability/compensation-rates/veteran-rates/" target="_blank" rel="noopener">VA.gov's published compensation rate tables</a> (last verified 2026-08-24) or <a href="https://www.ecfr.gov/current/title-38/chapter-I/part-4/subpart-A/section-4.25" target="_blank" rel="noopener">38 CFR §4.25</a>. No AI-estimated numbers.</p></div>
+  </div>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Not legal or financial advice</h4><p>This tool estimates VA disability ratings and pay for planning purposes only. For your official rating or a claim decision, consult an accredited <a href="https://www.va.gov/vso/" target="_blank" rel="noopener">Veterans Service Organization</a> or a VA-accredited attorney/claims agent.</p></div>
+  </div>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Published by an identifiable operator</h4><p>Run by Gesmine-Invest Limited (UK company 14120136) — see <a href="/about/">About</a> for full sourcing methodology and data gaps we disclose rather than paper over.</p></div>
+  </div>
+</div>
+</main>
+<footer>
+<p>VA Combined Rating Calculator is published by Gesmine-Invest Limited, registered UK company number 14120136, registered office at Hardy House, 269 Poynders Gardens, London, United Kingdom, SW4 8PQ. Not affiliated with the U.S. Department of Veterans Affairs.</p>
+<p><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/changelog/">Changelog</a> · &copy; 2026 VA Combined Rating Calculator. Estimates only — not legal or financial advice.</p>
+</footer>
+<script src="/assets/calc-engine.js"></script>
+</body>
+</html>

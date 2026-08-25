@@ -1,0 +1,24 @@
+{
+  "effective_date": "2021-12-01",
+  "coverage_period": "2021-12-01 to 2022-11-30",
+  "source": {
+    "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2022/",
+    "retrieved": "2026-08-24"
+  },
+  "last_verified": "2026-08-24",
+  "coverage_note": "PARTIAL DATA — only 'alone' (veteran, no dependents) rates sourced for this year. Full dependent-status matrix NOT sourced.",
+  "rates_10_20": {
+    "10": 152.64,
+    "20": 301.74
+  },
+  "rates_30_100": {
+    "30": { "alone": 467.39 },
+    "40": { "alone": 673.28 },
+    "50": { "alone": 958.44 },
+    "60": { "alone": 1214.03 },
+    "70": { "alone": 1529.95 },
+    "80": { "alone": 1778.43 },
+    "90": { "alone": 1998.52 },
+    "100": { "alone": 3332.06 }
+  }
+}

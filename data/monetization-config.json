@@ -1,0 +1,29 @@
+{
+  "ads": {
+    "enabled": false,
+    "provider": "adsense",
+    "client_id": "",
+    "slots": ["results-sidebar", "below-worksheet"]
+  },
+  "leadgen": {
+    "enabled": false,
+    "cta_text": "Talk to an accredited VA disability attorney — free case review",
+    "destination_url": "",
+    "placement": ["results-block", "footer-cta"],
+    "route_by_claim_stage": {
+      "not_filed": "vso-resources",
+      "awaiting_decision": "vso-resources",
+      "denied_appealing": "attorney-form",
+      "rated_want_increase": "attorney-form"
+    },
+    "ogc_accreditation_verified": false,
+    "ogc_accreditation_checked_date": ""
+  },
+  "loan_affiliate": {
+    "enabled": false,
+    "provider": "veterans-united",
+    "cta_text": "See VA home loan rates for veterans (informational only)",
+    "destination_url": "",
+    "placement": ["homepage-sidebar"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "effective_date": "2022-12-01",
+  "coverage_period": "2022-12-01 to 2023-11-30",
+  "source": {
+    "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2023/",
+    "retrieved": "2026-08-24"
+  },
+  "last_verified": "2026-08-24",
+  "coverage_note": "PARTIAL DATA — 'alone' rates for all ratings, plus a partial dependent-status subset for 30-60% only (spouse only, spouse+1 parent, 1 parent only, 1 child only). No 70-100% dependent matrix, no additional-child/A&A add-on amounts sourced for this year.",
+  "rates_10_20": {
+    "10": 165.92,
+    "20": 327.99
+  },
+  "rates_30_100": {
+    "30": { "alone": 508.05, "spouse_no_children": 568.05, "spouse_1_parent": 616.05, "parent_1": 556.05, "child_1_only": 548.05 },
+    "40": { "alone": 731.86, "spouse_no_children": 811.86, "spouse_1_parent": 875.86, "parent_1": 795.86, "child_1_only": 785.86 },
+    "50": { "alone": 1041.82, "spouse_no_children": 1141.82, "spouse_1_parent": 1222.82, "parent_1": 1122.82, "child_1_only": 1108.82 },
+    "60": { "alone": 1319.65, "spouse_no_children": 1440.65, "spouse_1_parent": 1537.65, "parent_1": 1416.65, "child_1_only": 1400.65 },
+    "70": { "alone": 1663.06 },
+    "80": { "alone": 1933.15 },
+    "90": { "alone": 2172.39 },
+    "100": { "alone": 3621.95 }
+  }
+}

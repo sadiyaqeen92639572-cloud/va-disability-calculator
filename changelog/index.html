@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog — VA Combined Rating Calculator</title>
+<meta name="description" content="What changed on this site and when, including known data gaps.">
+<link rel="canonical" href="https://vacombinedrating.com/changelog/">
+<meta property="og:title" content="Changelog — VA Combined Rating Calculator">
+<meta property="og:description" content="What changed on this site and when, including known data gaps.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vacombinedrating.com/changelog/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Gesmine-Invest Limited","legalName":"Gesmine-Invest Limited","url":"https://vacombinedrating.com","identifier":{"@type":"PropertyValue","propertyID":"UK Company Number","value":"14120136"},"address":{"@type":"PostalAddress","streetAddress":"Hardy House, 269 Poynders Gardens","addressLocality":"London","postalCode":"SW4 8PQ","addressCountry":"GB"}}]}</script>
+</head>
+<body>
+<header>
+<a href="/">VA Combined Rating Calculator</a>
+<h1>Changelog</h1>
+<p></p>
+<p class="reviewed-badge">Last reviewed 2026-08-24</p>
+</header>
+<div class="va-branding-notice">This is an independent tool — not affiliated with the U.S. Department of Veterans Affairs, not a VSO, and not a law firm.</div>
+<nav class="crumbs"><a href="/">Home</a> / Changelog</nav>
+<main>
+
+<section>
+<h2>Changelog</h2>
+<ul>
+<li><strong>2026-08-24</strong> — Site launched: combined rating calculator with bilateral factor, monthly pay calculator, compensation-with-dependents calculator, back-pay calculator using historical rate data (2020-2026), and a guide to how combined ratings work.</li>
+</ul>
+<h3>Known data gaps</h3>
+<ul>
+<li>Historical compensation-rates-history files for 2020-2024 have full "veteran alone" rates but partial dependent-status matrices (see each file's <code>coverage_note</code>) — the back-pay calculator warns when a calculation falls back to the alone-rate for a period with incomplete dependent data.</li>
+<li>The combined-ratings-table.json 3-condition fixture ([30,20,10] → 50) is formula-derived and corroborated against a published worked example, but not independently cross-checked against a raw rendering of the official Table I (eCFR/GovInfo blocked automated fetch at build time) — flagged for manual spot-check.</li>
+</ul>
+</section>
+
+<div class="eeat-section">
+  <h2 class="eeat-title">Transparency &amp; Methodology</h2>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Independent, source-checked figures</h4><p>Every dollar figure traces to <a href="https://www.va.gov/disability/compensation-rates/veteran-rates/" target="_blank" rel="noopener">VA.gov's published compensation rate tables</a> (last verified 2026-08-24) or <a href="https://www.ecfr.gov/current/title-38/chapter-I/part-4/subpart-A/section-4.25" target="_blank" rel="noopener">38 CFR §4.25</a>. No AI-estimated numbers.</p></div>
+  </div>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Not legal or financial advice</h4><p>This tool estimates VA disability ratings and pay for planning purposes only. For your official rating or a claim decision, consult an accredited <a href="https://www.va.gov/vso/" target="_blank" rel="noopener">Veterans Service Organization</a> or a VA-accredited attorney/claims agent.</p></div>
+  </div>
+  <div class="eeat-compliance-item">
+    <div class="eeat-compliance-text"><h4>Published by an identifiable operator</h4><p>Run by Gesmine-Invest Limited (UK company 14120136) — see <a href="/about/">About</a> for full sourcing methodology and data gaps we disclose rather than paper over.</p></div>
+  </div>
+</div>
+</main>
+<footer>
+<p>VA Combined Rating Calculator is published by Gesmine-Invest Limited, registered UK company number 14120136, registered office at Hardy House, 269 Poynders Gardens, London, United Kingdom, SW4 8PQ. Not affiliated with the U.S. Department of Veterans Affairs.</p>
+<p><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/changelog/">Changelog</a> · &copy; 2026 VA Combined Rating Calculator. Estimates only — not legal or financial advice.</p>
+</footer>
+<script src="/assets/calc-engine.js"></script>
+</body>
+</html>

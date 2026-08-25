@@ -1,0 +1,17 @@
+{
+  "regulation": "38 CFR 4.26 — Bilateral Factor",
+  "source": {
+    "url": "https://www.hillandponton.com/va-math-calculate-combined-disability-rating/",
+    "cross_reference": "https://www.military.com/veterans-health-care/combined-disability-ratings-the-va-math-no-one-explains"
+  },
+  "last_verified": "2026-08-24",
+  "description": "When a veteran has disabilities affecting both a paired (bilateral) set of extremities or paired skeletal muscle groups, VA first combines only those bilateral disabilities together using the standard combined-ratings formula, then adds an extra 10% of that bilateral sub-combined value on top of it, BEFORE combining the result with the veteran's remaining (non-bilateral) disabilities and applying final rounding.",
+  "qualifying_pairs": [
+    "Both arms (upper extremities)",
+    "Both legs (lower extremities)",
+    "Paired skeletal muscle groups (e.g. both hands, both feet, both knees, when rated separately)"
+  ],
+  "non_qualifying_example": "One arm + one leg does NOT qualify — the bilateral factor only applies to disabilities affecting the SAME paired body part type on both sides (e.g. left knee + right knee qualifies; left knee + right shoulder does not, since knee and shoulder are different paired-part categories)",
+  "calculation_note": "Example structure: if bilateral disabilities combine to X%, the bilateral factor adds 0.1*X (rounded per VA convention) to X before that adjusted bilateral value re-enters the main combination sequence with the veteran's other (non-bilateral) disabilities, sorted by severity.",
+  "v1_scope": "Implemented as an optional advanced checkbox in the combined-rating calculator (\"Do any of these disabilities affect paired left/right limbs?\"), not required for the base calculator to function. Users with bilateral disabilities should be advised the tool provides an estimate and to confirm with an accredited VSO/attorney for claims involving bilateral factor."
+}
