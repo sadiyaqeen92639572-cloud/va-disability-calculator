@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const DOMAIN = 'https://vacombinedrating.com';
+const DOMAIN = 'https://combinedratingcalc.com';
 const LAST_REVIEWED = '2026-08-24';
 const YEAR = new Date().getFullYear();
+const ASSET_VERSION = Date.now();
 const ORG = {
   '@type': 'Organization',
   name: 'Gesmine-Invest Limited',
@@ -92,6 +93,19 @@ function eeatSection() {
 </div>`;
 }
 
+const NAV_LINKS = [
+  { slug: '/', label: 'Combined Rating' },
+  { slug: '/va-disability-pay-calculator/', label: 'Monthly Pay' },
+  { slug: '/va-disability-compensation-calculator/', label: 'Compensation' },
+  { slug: '/va-disability-back-pay-calculator/', label: 'Back Pay' }
+];
+
+function siteNav(canonicalPath) {
+  return `<nav class="site-nav">
+${NAV_LINKS.map(l => `  <a href="${l.slug}"${l.slug === canonicalPath ? ' class="active" aria-current="page"' : ''}>${l.label}</a>`).join('\n')}
+</nav>`;
+}
+
 function layout({ title, description, canonicalPath, h1, subtitle, jsonLd, bodyHtml }) {
   const canonical = `${DOMAIN}${canonicalPath}`;
   return `<!doctype html>
@@ -108,7 +122,7 @@ function layout({ title, description, canonicalPath, h1, subtitle, jsonLd, bodyH
 <meta property="og:url" content="${canonical}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/styles.css?v=${ASSET_VERSION}">
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>
 <body>
@@ -117,6 +131,7 @@ function layout({ title, description, canonicalPath, h1, subtitle, jsonLd, bodyH
 <h1>${h1}</h1>
 <p>${subtitle}</p>
 <p class="reviewed-badge">Last reviewed ${LAST_REVIEWED}</p>
+${siteNav(canonicalPath)}
 </header>
 <div class="va-branding-notice">This is an independent tool — not affiliated with the U.S. Department of Veterans Affairs, not a VSO, and not a law firm.</div>
 <nav class="crumbs"><a href="/">Home</a> / ${h1}</nav>

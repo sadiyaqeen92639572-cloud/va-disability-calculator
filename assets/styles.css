@@ -16,6 +16,14 @@ header p { color: rgba(255,255,255,.9); }
 h2 { font-size: 1.4rem; }
 h3 { font-size: 1.1rem; }
 header .reviewed-badge { color: rgba(255,255,255,.75); font-size: .78rem; margin-top: 6px; text-transform: uppercase; letter-spacing: .5px; font-weight: 600; }
+.site-nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 18px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 16px; }
+.site-nav a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .85rem; font-weight: 600; padding: 8px 16px; border-radius: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); }
+.site-nav a:hover { background: rgba(255,255,255,.16); }
+.site-nav a.active { background: #fff; color: var(--brand); border-color: #fff; }
+@media (max-width: 640px) {
+  .site-nav { gap: 8px; }
+  .site-nav a { padding: 8px 12px; font-size: .8rem; }
+}
 footer p:first-child { max-width: 640px; margin: 0 auto 8px; }
 .disclaimer-banner { background: #fef3c7; border-bottom: 1px solid #fde68a; padding: 12px 20px; font-size: .9rem; color: #78350f; }
 

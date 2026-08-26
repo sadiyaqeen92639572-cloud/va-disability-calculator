@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const DOMAIN = 'https://vacombinedrating.com';
+const DOMAIN = 'https://combinedratingcalc.com';
 const today = new Date().toISOString().slice(0, 10);
 
 const paths = [
