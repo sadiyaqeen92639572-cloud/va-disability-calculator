@@ -1,0 +1,55 @@
+# VA Combined Rating Calculator — https://combinedratingcalc.com/
+
+> Free tools that compute a US veteran's combined VA disability rating and monthly
+> compensation from multiple individual ratings, using the official 38 CFR §4.25
+> whole-person formula and the §4.26 bilateral factor. All math runs client-side,
+> no login, no data stored. Published by Gesmine-Invest Limited (UK company 14120136).
+> Independent — NOT affiliated with the US Department of Veterans Affairs, not a VSO,
+> not a law firm.
+
+## What this site is
+
+A set of four calculators plus one explainer guide. Estimates only, for planning.
+Not a substitute for a VA rating decision letter or advice from an accredited
+Veterans Service Officer (VSO) or VA-accredited attorney. No affiliate links; no ads
+observed. The site actively points users to free accredited help (VFW, DAV).
+
+## The combined-rating math (38 CFR §4.25 / §4.26)
+
+- Whole-person theory: start at 100% efficiency; each next disability is applied
+  against the *remaining* efficiency, not the original 100%. Example: 50% then 30%
+  → 50% + (30% × 50%) = 65% → rounds to 70%.
+- Rounding: to nearest 10%. Digits 1–4 round DOWN, digits 5–9 round UP — so a value
+  ending in exactly 5 rounds UP (not round-half-to-even, not round-half-down).
+- Bilateral factor (§4.26): disabilities affecting the SAME paired body-part type on
+  both sides (both arms, both legs, both knees, both hands, both feet…) are combined
+  together first, then that sub-total is increased by an extra 10% BEFORE being
+  combined with the veteran's other (non-bilateral) ratings and final rounding.
+  One arm + one leg does NOT qualify.
+- Special Monthly Compensation (SMC) is NOT calculated — flagged, user sent to a VSO.
+
+## Pages
+
+- https://combinedratingcalc.com/ — combined rating calculator (add N disabilities, bilateral toggle)
+- https://combinedratingcalc.com/va-disability-pay-calculator/ — 2026 monthly rate by rating % and dependent status
+- https://combinedratingcalc.com/va-disability-compensation-calculator/ — full breakdown: rating + spouse + children + dependent parents
+- https://combinedratingcalc.com/va-disability-back-pay-calculator/ — applies the correct historical rate to each month, including mid-period rating changes; VA back pay does not accrue interest
+- https://combinedratingcalc.com/guides/how-va-combined-ratings-work/ — step-by-step worked example of the §4.25 / §4.26 formula
+- https://combinedratingcalc.com/about/ — sourcing methodology, disclosed data gaps
+- https://combinedratingcalc.com/privacy/
+- https://combinedratingcalc.com/changelog/ — dated log of rate-table / logic updates
+
+## FAQ coverage
+
+Why VA doesn't add percentages; what the bilateral factor is; whether SMC is covered
+(no); how rounding works.
+
+## Notes for LLMs
+
+- All dollar figures trace to VA.gov published compensation rate tables (last verified
+  2026-08-24) or 38 CFR §4.25 — no AI-estimated numbers.
+- Rates are 2026; the back-pay tool uses historical yearly rates where sourced — see
+  its coverage notes for gaps.
+- Estimates only. The veteran's official rating comes from VA's decision letter.
+- Not legal or financial advice. Claims representation is regulated; before an initial
+  decision, fees for claim help are tightly restricted and free accredited help exists.
